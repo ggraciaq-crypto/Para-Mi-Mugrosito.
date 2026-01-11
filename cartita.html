@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para mi Mugrosito 💌</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #A7D8F5;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* CARTITA */
+.carta {
+    background: white;
+    width: 85%;
+    max-width: 380px;
+    margin: 25px auto;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ANIMACIONES */
+.heart, .balloon, .confetti {
+    position: fixed;
+    pointer-events: none;
+}
+
+.heart {
+    font-size: 20px;
+    animation: subir 6s linear infinite;
+}
+
+.balloon {
+    font-size: 36px;
+    animation: subir 12s linear infinite;
+}
+
+.confetti {
+    width: 10px;
+    height: 10px;
+    animation: caer 4s linear infinite;
+}
+
+@keyframes subir {
+    from { transform: translateY(120vh); }
+    to { transform: translateY(-30vh); }
+}
+
+@keyframes caer {
+    from { transform: translateY(-20vh); }
+    to { transform: translateY(120vh); }
+}
+
+/* CONTENIDO */
+section {
+    display: none;
+    padding: 30px 20px;
+}
+
+button {
+    background-color: #ffb6c1;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff8fa3;
+}
+
+/* FOTO + TEXTO */
+.foto-texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.foto-texto img {
+    width: 260px;
+    border-radius: 20px;
+}
+
+.texto {
+    max-width: 380px;
+    text-align: left;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MÚSICA AUTOMÁTICA -->
+<iframe
+    src="https://www.youtube.com/embed/lhAS4PfpaxM?autoplay=1&mute=1"
+    allow="autoplay"
+    style="display:none;">
+</iframe>
+
+<script>
+/* 💗 MUCHÍSIMOS CORAZONES */
+setInterval(() => {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.color = ["#ff6f9f","#ff9acb","#ffffff"][Math.floor(Math.random()*3)];
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}, 150);
+
+/* 🎈 MUCHOS GLOBOS */
+setInterval(() => {
+    let b = document.createElement("div");
+    b.className = "balloon";
+    b.innerHTML = "🎈";
+    b.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 12000);
+}, 400);
+
+/* 🎉 MUCHO CONFETI */
+setInterval(() => {
+    for (let i = 0; i < 5; i++) {
+        let c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.background = ["#ffb6c1","#ffffff","#ffd1dc","#cce6ff"][Math.floor(Math.random()*4)];
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+    }
+}, 120);
+</script>
+
+<!-- INICIO -->
+<section id="sobre" style="display:block;">
+    <div class="carta">
+        <h3>💌 Para ti, con amor</h3>
+        <p>
+            Esta no es una carta cualquiera…  
+            es un pedacito de mi corazón hecho detalle,feliz cumple 💖
+        </p>
+    </div>
+
+    <h2>Feliz Cumpleaños, mi viejito 💖</h2>
+    <button onclick="next('musica')">Presiona aquí💖</button>
+</section>
+
+<!-- MUSICA -->
+<section id="musica">
+    <h2>🎵 Dale play para escuchar la música, espero te guste 🎵</h2>
+    <iframe width="300" height="170"
+        src="https://www.youtube.com/embed/lhAS4PfpaxM"
+        allowfullscreen></iframe>
+    <br>
+    <button onclick="next('foto')">Sigale que aun no acaba 💕</button>
+</section>
+
+<!-- FOTO + TEXTO -->
+<section id="foto">
+    <div class="foto-texto">
+        <img src="foto_novios.jpg">
+        <div class="texto">
+            <h3>✨ ¡Ya son 24! ✨</h3>
+            <p>
+                Hoy celebras 24 años de ser una persona increíble.
+                A esta edad ya eres un poquito más viejito que ya se te aguadaron las tapas 🤭💗,
+                pero sigues teniendo esa chispa que me encanta.
+            </p>
+            <p>
+                Desde que llegaste a mi vida, cada momento se ha vuelto
+                un recuerdo que guardo en mi corazón.te amo muchito💖
+            </p>
+        </div>
+    </div>
+
+    <button onclick="next('sorpresa')">Tengo algo más para decirte...</button>
+</section>
+
+<!-- SORPRESA -->
+<section id="sorpresa">
+    <button onclick="next('mensaje')">Haz clic aquí, mi mugre 🎁</button>
+</section>
+
+<!-- MENSAJE -->
+<section id="mensaje">
+    <h2>✨ Feliz Vida, Mi Vida 🥳💖</h2>
+    <p>
+        Feliz cumpleaños mi vida espero que la estés pasando muy bien te deseo todo 
+lo mejor en este nuevo año de vida que 
+    Dios siga bendiciéndote grandemente, espero seguir pasando 
+más cumpleaños junto a ti. 
+
+        <br><br>
+        Te amo mucho ❤️
+        y que me bese el cumpleañero 🥳💖
+    </p>
+
+    <img src="https://i.pinimg.com/originals/e7/21/03/e721032e622b93e28b7b9771e8773684.gif" width="260">
+    <br>
+    <button onclick="next('regalos')">Ver regalos 🎁</button>
+</section>
+
+<!-- REGALOS -->
+<section id="regalos">
+    <h2>Tus regalos hechos con amor 🎁</h2>
+
+    <button onclick="alert('Yo invito, tú pagas 🤭')">Vale por una comida 🍕</button><br><br>
+    <button onclick="alert('Válido siempre 😗💖')">Vale por unos besos 🥰</button><br><br>
+    <button onclick="alert('Úsalo bien,Valido una sola vez 😶‍🌫️')">Un día sin enojarme 🙄💖</button>
+
+    <p><strong>Te amo muchísimo, espero que te haya gustado este detalle.</strong></p>
+    <p><strong>Con mucho cariño, Mailyn 💖</strong></p>
+</section>
+
+<script>
+function next(id) {
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+</script>
+
+</body>
+</html>
